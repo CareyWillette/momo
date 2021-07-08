@@ -84,6 +84,10 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	float: none;
 	vertical-align: top;
 }
+.navbar .navbar-header .navbar-logo {
+	max-width: 50px;
+	height: auto;
+}
 .navbar .navbar-collapse {
 	text-align: center;
 }
@@ -454,4 +458,10 @@ color: #999;
 }
 #footer a:hover {
 	color: #eee;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.navbar .navbar-nav {
+		display: flex;
+	}
 }
