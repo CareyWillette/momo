@@ -1,3 +1,21 @@
+$icon-key-abbrs: (
+	gf: rgba(152, 4, 152, 1),
+	s: rgba(255, 0, 0, 1),
+	v: rgba(0, 128, 0, 1)
+);
+
+@mixin color-modifiers($attribute: 'color', $prefix: '-') {
+  @each $name, $rgba in $icon-key-abbrs {
+    &#{$prefix}#{$name} {
+      #{$attribute}: $rgba;
+    }
+  }
+}
+
+.icon-key-abbr {
+	@include color-modifiers($prefix: '--');
+}
+
 body, html {
 	font-family: 'Open Sans', serif;
 	text-rendering: optimizeLegibility !important;
@@ -260,8 +278,22 @@ header .intro-text {
 	padding: 100px 0 60px 0;
 }
 #restaurant-menu img {
-	width: 300px;
-	box-shadow: 15px 0 #a7c44c;
+	// max-height: 325px;
+}
+#restaurant-menu .allergy-icons {
+		// border: 1px solid rgba(0, 0, 0, 1);
+		// border-radius: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		& > .icon-key {
+			padding: 0 5px;
+			& span.abbr {
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 14px;
+			}
+		}
 }
 #restaurant-menu h3 {
 	padding: 10px 0;
@@ -304,8 +336,13 @@ header .intro-text {
 
 #restaurant-menu .menu-item-allergy-alert {
 	font-weight: bold;
-	&.v {
-		color: green;
+	font-size: 12px;
+	display: flex;
+	justify-content: flex-start;
+	& [data-name^="icon-key-abbr--"] {
+		padding: 0 2px;
+		font-size: 12px;
+		text-transform: uppercase;
 	}
 }
 
@@ -458,10 +495,4 @@ color: #999;
 }
 #footer a:hover {
 	color: #eee;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-	.navbar .navbar-nav {
-		display: flex;
-	}
 }

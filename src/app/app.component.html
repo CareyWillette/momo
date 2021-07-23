@@ -6,19 +6,16 @@
         <span class="sr-only">Toggle navigation</span> 
         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
       </button>
-      <a class="" href="#">
-        <img class="navbar-logo" alt="Momo logo" src="assets/momo-fav-ico.png">
-      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li><a href="#features" class="page-scroll">Specials</a></li> -->
+        <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
         <li><a href="#about" class="page-scroll">About</a></li>
         <li><a href="#team" class="page-scroll">Chef</a></li>
-        <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
-        <li><a href="#contact" class="page-scroll">Location</a></li>
+        <li><a href="#features" class="page-scroll">Reviews</a></li>
         <li><a href="#contact" class="page-scroll">Contact</a></li>
       </ul>
     </div>
@@ -41,79 +38,42 @@
     </div>
   </div>
 </header>
-<!-- Features Section -->
-<div id="features" class="text-center">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Specials</h2>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Something</h3>
-          <img src="assets/img/specials/1.jpg" class="img-responsive" alt="">
-          <p>coming soon...
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Kind Of</h3>
-          <img src="assets/img/specials/2.jpg" class="img-responsive" alt="">
-          <p>coming soon...
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="features-item">
-          <h3>Special</h3>
-          <img src="assets/img/specials/3.jpg" class="img-responsive" alt="">
-          <p>coming soon...
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- About Section -->
-<div id="about">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 about-img"> </div>
-      <div class="col-xs-12 col-md-3 col-md-offset-1">
-        <div class="about-text">
-          <div class="section-title">
-            <h2>Our Story</h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo
-            nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo
-            nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Restaurant Menu Section -->
 <div id="restaurant-menu">
   <div class="container">
     <div class="section-title text-center">
       <h2>Menu</h2>
+      <div class="allergy-icons">
+        <div class="icon-key">
+          <span class="abbr icon-key-abbr--v">v </span>
+          <span class="key-description">vegetarian</span>
+        </div>
+        <div class="icon-key">
+          <span class="abbr icon-key-abbr--gf">gf </span>
+          <span class="key-description">gluten free</span>
+        </div>
+        <div class="icon-key">
+          <span class="abbr icon-key-abbr--s">s </span>
+          <span class="key-description">spicy</span>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6" *ngFor="let section of menu">
+      <div class="col-xs-12 col-sm-6" *ngFor="let section of menu$ | async">
         <div class="menu-section">
           <h2 class="menu-section-title">{{section.title}}</h2>
           <div class="menu-item" *ngFor="let item of section.items">
             <div class="menu-item-name">{{item.name}}</div>
             <div class="menu-item-price"> {{item.price | currency: 'USD'}} </div>
             <div class="menu-item-description"> {{item.description}} </div>
-            <div class="menu-item-allergy-alert v"> {{item?.allergyIcon}} </div>
+            <div class="menu-item-allergy-alert">
+              <div [attr.data-name]="allergy?.className" [ngClass]="allergy?.className"
+                *ngFor="let allergy of item?.allergyIcons">{{allergy?.abbr}}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- <div class="row">
+      <!-- <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="menu-section">
           <h2 class="menu-section-title">Dinner</h2>
@@ -171,8 +131,96 @@
               dapibus leo nec ornare diam. </div>
           </div>
         </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 about-img"> </div>
+      <div class="col-xs-12 col-md-3 col-md-offset-1">
+        <div class="about-text">
+          <div class="section-title">
+            <h2>Our Story</h2>
+          </div>
+          <p>coming</p>
+          <p>soon</p>
+        </div>
       </div>
-    </div> -->
+    </div>
+  </div>
+</div>
+<!-- Features Section -->
+<div id="features" class="text-center">
+  <div class="container">
+    <div class="section-title">
+      <h2>Reviews</h2>
+    </div>
+    <div class='row'>
+      <div class='col-md-offset-2 col-md-8'>
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+          <!-- Bottom Carousel Indicators -->
+          <!-- <ol class="carousel-indicators">
+            <li data-target="#quote-carousel" *ngFor="let review of customerReviews$ | async; let first = first; let i = index" [data-slide-to]="i" [ngClass]="{'active': first}"></li>
+          </ol> -->
+          
+          <!-- Carousel Slides / Quotes -->
+          <div class="carousel-inner">
+          
+            <!-- Quote 1 -->
+            <div class="item" [ngClass]="{'active': first}" *ngFor="let review of customerReviews$ | async; let first = first">
+              <blockquote>
+                <div class="row">
+                  <div class="col-sm-3 text-center">
+                    <img class="img-circle" [src]="review.userImageUrl" style="width: 100px;height:100px;">
+                  </div>
+                  <div class="col-sm-9">
+                    <p>{{review.comment}}</p>
+                    <small>{{review.userName}}</small>
+                    <momo-star-rating [rating]="review"></momo-star-rating>
+                  </div>
+                </div>
+              </blockquote>
+            </div>
+          
+          <!-- Carousel Buttons Next/Prev -->
+          <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+          <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+        </div>                          
+      </div>
+    </div>
+
+    <!-- <div class="section-title">
+      <h2>Reviews</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Something</h3>
+          <img src="assets/img/specials/1.jpg" class="img-responsive" alt="">
+          <p>coming soon...
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Kind Of</h3>
+          <img src="assets/img/specials/2.jpg" class="img-responsive" alt="">
+          <p>coming soon...
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features-item">
+          <h3>Special</h3>
+          <img src="assets/img/specials/3.jpg" class="img-responsive" alt="">
+          <p>coming soon...
+          </p>
+        </div>
+      </div> -->
+    </div>
   </div>
 </div>
 <!-- Gallery Section -->
@@ -203,10 +251,8 @@
           <div class="section-title">
             <h2>Meet The Chef</h2>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo
-            nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo
-            nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
+          <p>Tashi Delek</p>
+          <p>coming soon</p>
         </div>
       </div>
       <div class="col-md-6">

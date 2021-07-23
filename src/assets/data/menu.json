@@ -1,0 +1,78 @@
+[
+    {
+      "title": "Sides & Sips",
+      "items": [
+        {
+          "name": "Momos",
+          "price": 1.50,
+          "description": "Steamed spiced ground beef dumpling"
+        },
+        {
+          "name": "Rice",
+          "price": 3.00,
+          "description": "Steamed basmati rice",
+          "allergyIcons": [
+            {
+              "name": "vegetarian",
+              "abbr": "v",
+              "className": "icon-key-abbr--v"
+            },
+            {
+              "name": "gluten free",
+              "abbr": "gf",
+              "className": "icon-key-abbr--gf"
+            }
+          ]
+        },
+        {
+          "name": "Chai Tea",
+          "price": 2.25,
+          "description": "A homemade brew of brook bond tea and spice made daily, not too sweet not too spicy and perfect balance. (8 oz)"
+        },
+        {
+          "name": "Soda",
+          "price": 1.50,
+          "description": "Sweet water"
+        }
+      ]
+    },
+    {
+      "title": "Entrees",
+      "items": [
+        {
+          "name": "The Momo Plate",
+          "price": 10,
+          "description": "Six steamed momos served with potato and a hot or mild dipping sauce."
+        },
+        {
+          "name": "The Combo Plate",
+          "price": 15,
+          "description": "Curried lentils and curried beef served over basmati rice with potato and 2 momos (includes hot or mild dipping sauce).",
+          "allergyIcons": [
+            {
+              "name": "spicy",
+              "abbr": "s",
+              "className": "icon-key-abbr--s"
+            }
+          ]
+        },
+        {
+          "name": "The Tashi Delek",
+          "price": 12,
+          "description": "Similar to the combo plate - without the momos"
+        },
+        {
+          "name": "Rice Plate",
+          "price": 9,
+          "description": "Mild curried lentils served over basmati rice with potato, a simple vegetarian meal.",
+          "allergyIcons": [
+            {
+              "name": "vegetarian",
+              "abbr": "v",
+              "className": "icon-key-abbr--v"
+            }
+          ]
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,7 @@
+<mat-card>
+  <div class="star-rating-container star-rating-animation">
+      <div *ngFor="let star of rating?.stars" [ngClass]="[star?.class]">
+        <mat-icon>{{star?.icon}}</mat-icon>
+      </div>
+  </div>
+</mat-card>
