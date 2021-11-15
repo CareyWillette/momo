@@ -190,7 +190,11 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url('./assets/img/momo-intro-bg.jpg') center center no-repeat;
+	// background: url('./assets/img/momo-intro-bg.jpg') center center no-repeat;
+	background: url('./assets/img/momo-intro-bg-actual-vivid-cool.jpg') center center no-repeat;
+	// -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  // filter: grayscale(100%);
+	// filter: contrast(100%);
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

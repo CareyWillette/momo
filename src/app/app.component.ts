@@ -46,9 +46,9 @@ export class AppComponent {
     {
       title: 'Hours',
       items: [
-        'Mon-Fri: 12:00 PM - 3:00 PM',
+        'Mon-Fri: Closed',
         'Sat-Sun: Closed',
-        'Hours are subject to change during the off season'
+        'We are closed for the offseaon. Opening mid-December'
       ]
     }
   ];
