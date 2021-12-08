@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { StarRatingModule } from './star-rating/star-rating.module';
+import { LightRopeComponent } from './light-rope/light-rope.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,9 +20,10 @@ import { StarRatingModule } from './star-rating/star-rating.module';
     ReactiveFormsModule,
     StarRatingModule
   ],
-  declarations: [
-    AppComponent
-  ],
+  declarations: [	
+    AppComponent,
+      LightRopeComponent
+   ],
   providers: [
     DataService
   ],
